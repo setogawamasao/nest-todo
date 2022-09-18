@@ -1,0 +1,35 @@
+@host = localhost:3000
+
+
+### GET ALL
+GET http://{{host}}/todo
+
+### GET one
+GET http://{{host}}/todo/1
+
+
+### POST
+POST http://{{host}}/todo
+content-type: application/json
+
+{
+  "title": "XXXXX",
+  "description": "YYYYYYY",
+  "dueDate": "2022-01-01",
+  "isDone": true
+}
+
+### PATCH
+PATCH http://{{host}}/todo/1
+content-type: application/json
+
+{
+  "title": "AAAAA",
+  "description": "BBBBBB",
+  "dueDate": "2022-12-31",
+  "isDone": false
+}
+
+### DELETE
+DELETE http://{{host}}/todo/2
+content-type: application/json

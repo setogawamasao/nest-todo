@@ -18,10 +18,10 @@ export class Todo {
   description: string;
 
   @CreateDateColumn()
-  dueDate?: Date;
+  dueDate: Date;
 
   @Column('boolean', { default: false })
-  idDone: boolean;
+  isDone: boolean;
 
   @CreateDateColumn()
   readonly createdAt?: Date;
