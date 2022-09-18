@@ -1,24 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { TodoModule } from './todo/todo.module';
-
+import { dataSource } from './config/ormconfig';
+console.log(dataSource.options);
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'todo-user',
-      password: 'todo-pass',
-      database: 'todo-db',
-      entities: ['dist/entities/**/*.entity.js'],
-      migrations: ['dist/migrations/**/*.js'],
-      synchronize: true,
-      logging: true,
-      cache: false,
-    }),
+    TypeOrmModule.forRoot(dataSource.options as TypeOrmModuleOptions),
     TodoModule,
   ],
   controllers: [AppController],
