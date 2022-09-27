@@ -20,7 +20,7 @@ content-type: application/json
 }
 
 ### PATCH
-PATCH http://{{host}}/todo/1
+PATCH http://{{host}}/todo/3
 content-type: application/json
 
 {

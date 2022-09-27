@@ -1,25 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { Todo } from './dto/todo';
+import { TodoDto } from './dto/todo.dto';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
-import { Todo } from '../entities/todo.entity';
+import { TodoEntity } from '../entities/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class TodoService {
   constructor(
-    @InjectRepository(Todo)
-    private readonly todoRepository: Repository<Todo>,
+    @InjectRepository(TodoEntity)
+    private readonly todoRepository: Repository<TodoEntity>,
   ) {}
 
-  create(createTodoDto: CreateTodoDto) {
-    const todo = new Todo();
-    todo.title = createTodoDto.title;
-    todo.description = createTodoDto.description;
-    todo.dueDate = createTodoDto.dueDate;
-    todo.isDone = createTodoDto.isDone;
-
-    return this.todoRepository.save(todo);
+  create(todo: Todo) {
+    return this.todoRepository.save(todo.toEntity());
   }
 
   findAll() {
@@ -30,13 +26,13 @@ export class TodoService {
     return this.todoRepository.findOne({ where: { id } });
   }
 
-  async update(id: number, updateTodoDto: UpdateTodoDto) {
-    const todo = await this.findOne(id);
-    todo.title = updateTodoDto.title;
-    todo.description = updateTodoDto.description;
-    todo.dueDate = updateTodoDto.dueDate;
-    todo.isDone = updateTodoDto.isDone;
-    return this.todoRepository.save(todo);
+  async update(id: number, todo: Todo) {
+    const todoEntity = await this.findOne(id);
+    if (!todoEntity) {
+      return undefined;
+    }
+    todoEntity.FromModel(todo);
+    return this.todoRepository.save(todoEntity);
   }
 
   remove(id: number) {

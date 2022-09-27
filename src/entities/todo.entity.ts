@@ -6,8 +6,10 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity()
-export class Todo {
+import { Todo } from '../todo/dto/todo';
+
+@Entity({ name: 'todo' })
+export class TodoEntity {
   @PrimaryGeneratedColumn()
   readonly id: number;
 
@@ -28,4 +30,11 @@ export class Todo {
 
   @UpdateDateColumn()
   readonly updatedAt?: Date;
+
+  FromModel = (model: Todo) => {
+    this.title = model.title;
+    this.description = model.description;
+    this.dueDate = model.dueDate;
+    this.isDone = model.isDone;
+  };
 }
