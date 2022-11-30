@@ -18,8 +18,13 @@ export class TodoService {
     return this.todoRepository.save(todo.toEntity());
   }
 
-  findAll() {
-    return this.todoRepository.find();
+  findAll(title: string) {
+    const builder = this.todoRepository.createQueryBuilder('todo');
+    console.log('debug', title);
+    if (title) {
+      builder.where('todo.title = :title', { title });
+    }
+    return builder.getMany();
   }
 
   findOne(id: number) {
