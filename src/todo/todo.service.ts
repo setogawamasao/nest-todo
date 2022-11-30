@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from './dto/todo';
 import { TodoDto } from './dto/todo.dto';
-import { CreateTodoDto } from './dto/create-todo.dto';
-import { UpdateTodoDto } from './dto/update-todo.dto';
 import { TodoEntity } from '../entities/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -20,10 +18,11 @@ export class TodoService {
 
   findAll(title: string) {
     const builder = this.todoRepository.createQueryBuilder('todo');
-    console.log('debug', title);
+
     if (title) {
       builder.where('todo.title = :title', { title });
     }
+
     return builder.getMany();
   }
 
