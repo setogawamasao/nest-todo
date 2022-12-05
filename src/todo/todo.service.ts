@@ -23,6 +23,12 @@ export class TodoService {
       builder.where('todo.title = :title', { title: condition.title });
     }
 
+    if (condition.description) {
+      builder.where("todo.description like '%' || :description || '%'", {
+        description: condition.description,
+      });
+    }
+
     return builder.getMany();
   }
 

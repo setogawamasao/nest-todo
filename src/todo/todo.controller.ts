@@ -23,8 +23,11 @@ export class TodoController {
   }
 
   @Get('/search')
-  findOne(@Query('title') title: string) {
-    const condition: TodoCondition = { title };
+  findOne(
+    @Query('title') title: string,
+    @Query('description') description: string,
+  ) {
+    const condition: TodoCondition = { title: title, description: description };
     return this.todoService.findAll(condition);
   }
 
