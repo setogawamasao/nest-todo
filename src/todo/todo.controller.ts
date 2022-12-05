@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { TodoService } from './todo.service';
-import { TodoDto } from './dto/todo.dto';
+import { TodoCondition, TodoDto } from './dto/todo.dto';
 import { Todo } from './dto/todo';
 @Controller('todo')
 export class TodoController {
@@ -24,7 +24,8 @@ export class TodoController {
 
   @Get('/search')
   findOne(@Query('title') title: string) {
-    return this.todoService.findAll(title);
+    const condition: TodoCondition = { title };
+    return this.todoService.findAll(condition);
   }
 
   @Patch(':id')

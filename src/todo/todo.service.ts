@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from './dto/todo';
-import { TodoDto } from './dto/todo.dto';
+import { TodoCondition, TodoDto } from './dto/todo.dto';
 import { TodoEntity } from '../entities/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -16,11 +16,11 @@ export class TodoService {
     return this.todoRepository.save(todo.toEntity());
   }
 
-  findAll(title: string) {
+  findAll(condition: TodoCondition) {
     const builder = this.todoRepository.createQueryBuilder('todo');
 
-    if (title) {
-      builder.where('todo.title = :title', { title });
+    if (condition.title) {
+      builder.where('todo.title = :title', { title: condition.title });
     }
 
     return builder.getMany();
