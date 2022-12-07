@@ -28,6 +28,9 @@ export class TodoService {
         description: condition.description,
       });
     }
+    if (condition.isDone) {
+      builder.where('todo.isDone = :isDone', { isDone: condition.isDone });
+    }
 
     return builder.getMany();
   }

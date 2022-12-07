@@ -26,8 +26,9 @@ export class TodoController {
   findOne(
     @Query('title') title: string,
     @Query('description') description: string,
+    @Query('isDone') isDone: boolean,
   ) {
-    const condition: TodoCondition = { title: title, description: description };
+    const condition: TodoCondition = { title, description, isDone };
     return this.todoService.findAll(condition);
   }
 
