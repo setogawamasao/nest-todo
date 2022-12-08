@@ -27,8 +27,20 @@ export class TodoController {
     @Query('title') title: string,
     @Query('description') description: string,
     @Query('isDone') isDone: boolean,
+    @Query('dueDateFrom') dueDateFrom: Date,
+    @Query('dueDateTo') dueDateTo: Date,
+    @Query('createdAtFrom') createdAtFrom: Date,
+    @Query('createdAtTo') createdAtTo: Date,
   ) {
-    const condition: TodoCondition = { title, description, isDone };
+    const condition: TodoCondition = {
+      title,
+      description,
+      isDone,
+      dueDateFrom,
+      dueDateTo,
+      createdAtFrom,
+      createdAtTo,
+    };
     return this.todoService.findAll(condition);
   }
 

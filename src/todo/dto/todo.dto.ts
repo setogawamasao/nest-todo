@@ -10,4 +10,8 @@ export interface TodoCondition {
   description?: string;
   dueDate?: Date;
   isDone?: boolean;
+  dueDateFrom?: Date;
+  dueDateTo?: Date;
+  createdAtFrom?: Date;
+  createdAtTo?: Date;
 }

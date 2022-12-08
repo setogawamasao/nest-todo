@@ -4,6 +4,7 @@ import { TodoCondition, TodoDto } from './dto/todo.dto';
 import { TodoEntity } from '../entities/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { DateTime } from 'luxon';
 
 @Injectable()
 export class TodoService {
@@ -30,6 +31,28 @@ export class TodoService {
     }
     if (condition.isDone) {
       builder.where('todo.isDone = :isDone', { isDone: condition.isDone });
+    }
+
+    if (condition.dueDateFrom) {
+      builder.andWhere('todo.dueDate >= :from', {
+        from: condition.dueDateFrom,
+      });
+    }
+    if (condition.dueDateTo) {
+      builder.andWhere('todo.dueDate <= :to', {
+        to: condition.dueDateTo,
+      });
+    }
+
+    if (condition.createdAtFrom) {
+      builder.andWhere('todo.createdAt >= :from', {
+        from: condition.createdAtFrom,
+      });
+    }
+    if (condition.createdAtTo) {
+      builder.andWhere('todo.createdAt <= :to', {
+        to: condition.createdAtTo,
+      });
     }
 
     return builder.getMany();
