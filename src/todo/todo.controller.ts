@@ -44,11 +44,11 @@ export class TodoController {
     return this.todoService.findAll(condition);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() todoDto: TodoDto) {
+  @Patch()
+  update(@Body() todoDto: TodoDto) {
     const todo = new Todo();
     todo.fromDto(todoDto);
-    const todoEntity = this.todoService.update(+id, todo);
+    const todoEntity = this.todoService.update(todo);
     if (!todoEntity) {
       //throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     }

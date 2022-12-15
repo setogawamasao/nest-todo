@@ -2,12 +2,14 @@ import { TodoDto } from '../dto/todo.dto';
 import { TodoEntity } from '../../entities/todo.entity';
 
 export class Todo {
+  id: number;
   title: string;
   description: string;
   dueDate: Date;
   isDone: boolean;
 
   fromDto = (dto: TodoDto) => {
+    this.id = dto.id;
     this.title = dto.title;
     this.description = dto.description;
     this.dueDate = dto.dueDate;

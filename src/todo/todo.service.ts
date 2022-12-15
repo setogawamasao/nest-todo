@@ -55,6 +55,8 @@ export class TodoService {
       });
     }
 
+    builder.addOrderBy('todo.id', 'ASC');
+
     return builder.getMany();
   }
 
@@ -62,8 +64,8 @@ export class TodoService {
     return this.todoRepository.findOne({ where: { id } });
   }
 
-  async update(id: number, todo: Todo) {
-    const todoEntity = await this.findOne(id);
+  async update(todo: Todo) {
+    const todoEntity = await this.findOne(todo.id);
     if (!todoEntity) {
       return undefined;
     }
