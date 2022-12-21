@@ -1,8 +1,22 @@
-export interface TodoDto {
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsNumber,
+  IsString,
+  IsDate,
+  IsBoolean,
+} from 'class-validator';
+
+export class TodoDto {
+  @IsNumber()
   id?: number;
+  @IsString()
   title: string;
+  @IsString()
   description: string;
+  @IsDate()
   dueDate: Date;
+  @IsBoolean()
   isDone: boolean;
 }
 
