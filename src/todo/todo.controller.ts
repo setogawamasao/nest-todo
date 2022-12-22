@@ -27,24 +27,7 @@ export class TodoController {
 
   @Get('/search')
   @ApiOperation({ summary: 'todoの検索' })
-  findOne(
-    @Query('title') title: string,
-    @Query('description') description: string,
-    @Query('isDone') isDone: boolean,
-    @Query('dueDateFrom') dueDateFrom: Date,
-    @Query('dueDateTo') dueDateTo: Date,
-    @Query('createdAtFrom') createdAtFrom: Date,
-    @Query('createdAtTo') createdAtTo: Date,
-  ) {
-    const condition: TodoCondition = {
-      title,
-      description,
-      isDone,
-      dueDateFrom,
-      dueDateTo,
-      createdAtFrom,
-      createdAtTo,
-    };
+  findOne(@Query() condition: TodoCondition) {
     return this.todoService.findAll(condition);
   }
 
