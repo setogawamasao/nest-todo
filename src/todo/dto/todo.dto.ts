@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsNotEmpty,
   IsOptional,
@@ -9,12 +10,14 @@ import {
 
 export class TodoDto {
   @IsNumber()
+  @IsOptional()
   id?: number;
   @IsString()
   title: string;
   @IsString()
   description: string;
   @IsDate()
+  @Type(() => Date)
   dueDate: Date;
   @IsBoolean()
   isDone: boolean;
