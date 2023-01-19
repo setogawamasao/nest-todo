@@ -15,3 +15,5 @@ http://www.code-magagine.com/?p=697
 
 ドメインの追加
 https://docs.nestjs.com/recipes/crud-generator#generating-a-new-resource
+
+nest g resource XXXX
