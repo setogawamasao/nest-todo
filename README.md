@@ -9,3 +9,6 @@ swagger
 https://docs.nestjs.com/openapi/introduction
 http://localhost:3001/api
 http://localhost:3001/api-json
+
+ログイン ID とユーザー ID
+http://www.code-magagine.com/?p=697
