@@ -1,5 +1,5 @@
 import { TodoDto } from '../dto/todo.dto';
-import { TodoEntity } from '../../entities/todo.entity';
+import { TodoEntity } from '../entities/todo.entity';
 
 export class Todo {
   id: number;

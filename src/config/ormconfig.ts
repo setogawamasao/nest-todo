@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import { TodoEntity } from '../todo/entities/todo.entity';
 
 export const dataSource = new DataSource({
   type: 'postgres',
@@ -8,10 +9,10 @@ export const dataSource = new DataSource({
   username: 'todo-user',
   password: 'todo-pass',
   database: 'todo-db',
-  // entities: ['src/entities/*.entity.ts'],
+  entities: [TodoEntity],
   // migrations: ['src/migrations/*.ts'],
-  entities: ['dist/entities/**/*.entity.js'],
-  migrations: ['dist/migrations/**/*.js'],
+  // entities: ['dist/entities/**/*.entity.js'],
+  // migrations: ['dist/migrations/**/*.js'],
   synchronize: true,
   logging: true,
 });

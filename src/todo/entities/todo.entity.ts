@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { Todo } from '../todo/dto/todo';
+import { Todo } from '../dto/todo';
 
 @Entity({ name: 'todo' })
 export class TodoEntity {
