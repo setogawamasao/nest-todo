@@ -12,3 +12,6 @@ http://localhost:3001/api-json
 
 ログイン ID とユーザー ID
 http://www.code-magagine.com/?p=697
+
+ドメインの追加
+https://docs.nestjs.com/recipes/crud-generator#generating-a-new-resource
