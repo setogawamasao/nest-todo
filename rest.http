@@ -33,3 +33,6 @@ content-type: application/json
 ### DELETE
 DELETE http://{{host}}/todo/2
 content-type: application/json
+
+### GET ALL user
+GET http://{{host}}/user
