@@ -34,5 +34,15 @@ content-type: application/json
 DELETE http://{{host}}/todo/2
 content-type: application/json
 
-### GET ALL user
+### User
+### GET
 GET http://{{host}}/user
+
+### POST
+POST http://{{host}}/user
+content-type: application/json
+
+{
+  "loginId": "aaa@aaa.com",
+  "password": "YYYYYYY"
+}

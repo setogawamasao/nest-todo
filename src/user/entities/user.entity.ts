@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-// import { Todo } from '../todo/dto/todo';
+import { User } from '../dto/user';
 
 @Entity({ name: 'users' })
 export class UserEntity {
@@ -25,10 +25,8 @@ export class UserEntity {
   @UpdateDateColumn()
   readonly updatedAt?: Date;
 
-  // FromModel = (model: Todo) => {
-  //   this.title = model.title;
-  //   this.description = model.description;
-  //   this.dueDate = model.dueDate;
-  //   this.isDone = model.isDone;
-  // };
+  FromModel = (model: User) => {
+    this.loginId = model.loginId;
+    this.password = model.password;
+  };
 }
