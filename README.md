@@ -17,3 +17,7 @@ http://www.code-magagine.com/?p=697
 https://docs.nestjs.com/recipes/crud-generator#generating-a-new-resource
 
 nest g resource XXXX
+
+openid connect
+https://sdoxsee.github.io/blog/2020/02/05/cats-nest-nestjs-mongo-oidc.html
+https://zenn.dev/vbbvbbvbbv/articles/15b73c6329471a
