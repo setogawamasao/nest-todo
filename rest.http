@@ -38,6 +38,8 @@ content-type: application/json
 ### GET
 GET http://{{host}}/user/3
 
+### GET ALL
+GET http://{{host}}/user
 
 ### POST
 POST http://{{host}}/user
