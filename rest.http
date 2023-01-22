@@ -57,3 +57,7 @@ content-type: application/json
   "loginId": "xxx@xxx.com",
   "password": "xxxxxx"
 }
+
+### DELETE
+DELETE http://{{host}}/user/2
+content-type: application/json
