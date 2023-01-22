@@ -36,7 +36,8 @@ content-type: application/json
 
 ### User
 ### GET
-GET http://{{host}}/user
+GET http://{{host}}/user/3
+
 
 ### POST
 POST http://{{host}}/user
@@ -45,4 +46,14 @@ content-type: application/json
 {
   "loginId": "aaa@aaa.com",
   "password": "YYYYYYY"
+}
+
+### PATCH
+PATCH http://{{host}}/user
+content-type: application/json
+
+{
+  "id":1,
+  "loginId": "xxx@xxx.com",
+  "password": "xxxxxx"
 }

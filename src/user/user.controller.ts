@@ -32,10 +32,12 @@ export class UserController {
     return this.userService.create(user);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-  //   return this.userService.update(+id, updateUserDto);
-  // }
+  @Patch()
+  update(@Body() userDto: UserDto) {
+    const user = new User();
+    user.fromDto(userDto);
+    return this.userService.update(user);
+  }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

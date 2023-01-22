@@ -21,14 +21,19 @@ export class UserService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.userRepository.findOne({ where: { id } });
   }
 
-  // update(id: number, updateUserDto: UpdateUserDto) {
-  //   return `This action updates a #${id} user`;
-  // }
+  async update(user: User) {
+    const userEntity = await this.findOne(user.id);
+    if (!userEntity) {
+      return undefined;
+    }
+    userEntity.FromModel(user);
+    return this.userRepository.save(userEntity);
+  }
 
   remove(id: number) {
-    return `This action removes a #${id} user`;
+    return this.userRepository.delete(id);
   }
 }
