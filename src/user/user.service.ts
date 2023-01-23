@@ -12,8 +12,19 @@ export class UserService {
     private readonly userRepository: Repository<UserEntity>,
   ) {}
 
-  create(user: User) {
-    return this.userRepository.save(user.toEntity());
+  async authenticate(user: User) {
+    const target = await this.userRepository.findOne({
+      where: { loginId: user.loginId },
+    });
+
+    let isAuthenticated: boolean;
+    if (user.password === target.toModel().password) {
+      isAuthenticated = true;
+    } else {
+      isAuthenticated = false;
+    }
+
+    return { isAuthenticated };
   }
 
   findAll() {
@@ -22,6 +33,10 @@ export class UserService {
 
   findOne(id: number) {
     return this.userRepository.findOne({ where: { id } });
+  }
+
+  create(user: User) {
+    return this.userRepository.save(user.toEntity());
   }
 
   async update(user: User) {

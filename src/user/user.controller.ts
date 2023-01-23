@@ -15,6 +15,13 @@ import { User } from './dto/User';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Post('/authenticate')
+  authenticate(@Body() userDto: UserDto) {
+    const user = new User();
+    user.fromDto(userDto);
+    return this.userService.authenticate(user);
+  }
+
   @Get()
   findAll() {
     return this.userService.findAll();

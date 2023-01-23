@@ -29,4 +29,11 @@ export class UserEntity {
     this.loginId = model.loginId;
     this.password = model.password;
   };
+
+  toModel = () => {
+    const user = new User();
+    user.loginId = this.loginId;
+    user.password = this.password;
+    return user;
+  };
 }
