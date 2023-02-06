@@ -8,9 +8,9 @@ import {
   Delete,
   Query,
 } from '@nestjs/common';
-import { TodoService } from './todo.service';
-import { TodoCondition, TodoDto } from './dto/todo.dto';
-import { Todo } from './dto/todo';
+import { TodoService } from '../services/todo.service';
+import { TodoCondition, TodoDto } from '../dto/todo.dto';
+import { Todo } from '../models/todo';
 import {
   ApiOkResponse,
   ApiForbiddenResponse,

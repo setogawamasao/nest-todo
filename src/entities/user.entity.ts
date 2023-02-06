@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { User } from '../dto/user';
+import { User } from '../models/user';
 
 @Entity({ name: 'users' })
 export class UserEntity {

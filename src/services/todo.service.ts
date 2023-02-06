@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Todo } from './dto/todo';
-import { TodoCondition, TodoDto } from './dto/todo.dto';
-import { TodoEntity } from './entities/todo.entity';
+import { Todo } from '../models/todo';
+import { TodoCondition, TodoDto } from '../dto/todo.dto';
+import { TodoEntity } from '../entities/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { DateTime } from 'luxon';
