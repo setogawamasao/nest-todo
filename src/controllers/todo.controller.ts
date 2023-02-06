@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { TodoService } from '../services/todo.service';
-import { TodoCondition, TodoDto } from '../dto/todo.dto';
+import { TodoCondition, TodoDto } from '../dtos/todo.dto';
 import { Todo } from '../models/todo';
 import {
   ApiOkResponse,

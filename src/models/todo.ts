@@ -1,4 +1,4 @@
-import { TodoDto } from '../dto/todo.dto';
+import { TodoDto } from '../dtos/todo.dto';
 import { TodoEntity } from '../entities/todo.entity';
 
 export class Todo {

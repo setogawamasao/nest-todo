@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from '../models/todo';
-import { TodoCondition, TodoDto } from '../dto/todo.dto';
+import { TodoCondition, TodoDto } from '../dtos/todo.dto';
 import { TodoEntity } from '../entities/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
