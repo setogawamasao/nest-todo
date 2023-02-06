@@ -36,7 +36,7 @@ content-type: application/json
 
 ### User
 ### Authenticate
-POST http://{{host}}/user/authenticate
+POST http://{{host}}/auth/authenticate
 content-type: application/json
 
 {

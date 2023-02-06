@@ -1,26 +1,30 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { User } from '../user/dto/user';
+import { UserEntity } from '../user/entities/user.entity';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
-  }
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>,
+  ) {}
 
-  findAll() {
-    return `This action returns all auth`;
-  }
+  async authenticate(user: User) {
+    const target = await this.userRepository.findOne({
+      where: { loginId: user.loginId },
+    });
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
+    let isAuthenticated: boolean;
+    if (user.password === target.toModel().password) {
+      isAuthenticated = true;
+    } else {
+      isAuthenticated = false;
+    }
 
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
+    return { isAuthenticated };
   }
 }
