@@ -21,3 +21,8 @@ nest g resource XXXX
 openid connect
 https://sdoxsee.github.io/blog/2020/02/05/cats-nest-nestjs-mongo-oidc.html
 https://zenn.dev/vbbvbbvbbv/articles/15b73c6329471a
+
+guard
+https://wiblok.com/ts/nest/nest_guard/
+
+nest g gu guard/auth
