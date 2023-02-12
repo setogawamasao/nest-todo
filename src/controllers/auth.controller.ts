@@ -7,7 +7,7 @@ import { User } from '../models/user';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('/authenticate')
+  @Post('/login')
   authenticate(@Body() userDto: UserDto) {
     const user = new User();
     user.fromDto(userDto);

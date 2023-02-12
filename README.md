@@ -26,3 +26,29 @@ guard
 https://wiblok.com/ts/nest/nest_guard/
 
 nest g gu guard/auth
+
+Observable
+https://zenn.dev/mikakane/articles/rxjs_2_tutorial
+https://www.codegrid.net/articles/2017-rxjs-1/
+
+CQRS
+https://qiita.com/ledmonster/items/22b00c65208dffeff7e4
+
+ディレクトリ構造
+https://zenn.dev/dove/articles/72e66240f09f34
+https://blog.tawa.me/entry/nestjs-module-splitting
+https://qiita.com/marc-town/items/cbec54ba13551c778e0e
+
+nestjs 基礎概念の図解
+https://zenn.dev/morinokami/articles/nestjs-overview
+nestjs 公式の認証
+https://docs.nestjs.com/security/authentication
+
+認証(JWT、クッキー)
+https://coders-shelf.com/react-auth-problem/
+
+https://tech.pepabo.com/2020/09/23/session-management-for-web-apps-using-spa-ssr-api/
+
+https://fintan.jp/page/373/
+
+https://ryurinblog.com/programming/spa-jwt/
