@@ -43,6 +43,8 @@ nestjs 基礎概念の図解
 https://zenn.dev/morinokami/articles/nestjs-overview
 nestjs 公式の認証
 https://docs.nestjs.com/security/authentication
+nestjs でセッション認証
+https://blog.loginradius.com/engineering/guest-post/session-authentication-with-nestjs-and-mongodb/
 
 認証(JWT、クッキー)
 https://coders-shelf.com/react-auth-problem/
